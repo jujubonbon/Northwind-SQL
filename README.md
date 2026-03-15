@@ -1,5 +1,6 @@
 # Northwind-SQL
 SQL analysis of Northwind Traders dataset using BigQuery
+
 I used BigQuery to analyze sales and operations data from Northwind Traders, a fictional food trading company. The goal was to uncover insights that could inform marketing and business decisions.
 Tools used: SQL, Google BigQuery
 
