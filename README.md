@@ -7,7 +7,7 @@ Tools used: SQL, Google BigQuery
 
 ================================================================
 
-Problem: On-time delivery rate
+Problem: On-time delivery rate.
 
 Question: What percentage of orders were shipped before the required date?
 
@@ -17,3 +17,12 @@ Insight: Northwind Traders has a strong on track record.
 
 ================================================================
 
+Problem: Revenue by product category.
+
+Question: Which product category generates the most revenue?
+
+Result: Beverages is the highest revenue category at $267868.18.
+
+Insight: Marketing budgets should prioritize beverage promotions and campaigns.
+
+================================================================
