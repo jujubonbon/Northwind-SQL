@@ -7,8 +7,7 @@ Tools used: SQL, Google BigQuery
 
 ================================================================
 
-Analysis:
-Q1: Problem: On-time delivery rate
+Problem: On-time delivery rate
 
 Question: What percentage of orders were shipped before the required date?
 
