@@ -57,6 +57,39 @@ group by sales_year,sales_quarter
 order by total_revenue desc
 limit 3
 
--Result: Most profitable quarters were : Q1 of 1998 with $89606.13, Q1 of 1997 with $35386.88 and Q4 of 1996 with $34781.22.
+- Result: Most profitable quarters were : Q1 of 1998 with $89606.13, Q1 of 1997 with $35386.88 and Q4 of 1996 with $34781.22.
 
   =============================================
+
+  - Problem: Purchasing patterns in the beverage category.
+  - Question: Which product categories are most frequently purchased alongside beverages?
+  
+
+select 
+round(sum(a.unitPrice*a.quantity*(1-a.discount)),2)+ round(sum(b.unitPrice*b.quantity*(1-b.discount)),2) as combined_revenue,
+count (*) as times_bought_together,
+c2.categoryName as paired_category
+from `my-portfolio-project-490314.Northwind_Traders.Order_details` a
+inner join `my-portfolio-project-490314.Northwind_Traders.Order_details` b 
+on a.orderId=b.orderID
+and a.productID != b.productID
+inner join `my-portfolio-project-490314.Northwind_Traders.Products` p1
+on a.productID=p1.productID
+inner join `my-portfolio-project-490314.Northwind_Traders.Products` p2
+on b.productID=p2.productID
+inner join `my-portfolio-project-490314.Northwind_Traders.Categories` c
+on p1.categoryID=c.categoryID
+INNER JOIN `my-portfolio-project-490314.Northwind_Traders.Categories` c2
+ON p2.categoryID = c2.categoryID
+where c.categoryName='Beverages'
+and c2.categoryNAme!='Beverages'
+group by paired_category
+order by times_bought_together desc
+limit 3
+
+
+- Results: The top 3 categories bought together with beverages are: Confections (149 times, $190,895), 
+  Seafood (145 times, $142,001) and Dairy Products (142 times, $196,582).
+
+=============================================
+
