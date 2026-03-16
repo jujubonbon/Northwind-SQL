@@ -93,3 +93,53 @@ limit 3
 
 =============================================
 
+-Problem: Analyzing the pattern of purchasing beverages together with confectionery and dairy products by shipping country
+
+select 
+round(sum(a.unitPrice*a.quantity*(1-a.discount)),2)+ round(sum(b.unitPrice*b.quantity*(1-b.discount)),2) as combined_revenue,Orders.shipCountry,
+count (*) as times_bought_together,
+c2.categoryName as paired_category
+from `my-portfolio-project-490314.Northwind_Traders.Order_details` a
+inner join `my-portfolio-project-490314.Northwind_Traders.Order_details` b 
+on a.orderId=b.orderID
+and a.productID != b.productID
+inner join `my-portfolio-project-490314.Northwind_Traders.Products` p1
+on a.productID=p1.productID
+inner join `my-portfolio-project-490314.Northwind_Traders.Products` p2
+on b.productID=p2.productID
+inner join `my-portfolio-project-490314.Northwind_Traders.Categories` c
+on p1.categoryID=c.categoryID
+INNER JOIN `my-portfolio-project-490314.Northwind_Traders.Categories` c2
+ON p2.categoryID = c2.categoryID
+inner join `my-portfolio-project-490314.Northwind_Traders.Orders` Orders
+on b.orderID=Orders.orderID
+where c.categoryName='Beverages'
+and c2.categoryNAme!='Beverages'
+and c2.categoryName = 'Confections'
+group by Orders.shipCountry,paired_category
+order by times_bought_together desc
+
+
+ This query was reused with small modifications and filtered 4 times to analyze
+product categories bought together.
+
+   Filters applied:
+1. Beverages + Confections → Times bought together
+
+   Results: 1st place USA: $35171.23 and 30 times bought together, Germany $60704.7 and 28 times bought together, 
+   Venezuela $6913.4 and 9 times bought together
+  
+2. Beverages + Confections → Total combined revenue
+
+  Resultus: Germany, USA and Danemark with 12329.0 combined revenue and 3 times bought together.
+  
+3. Beverages + Dairy Products → Times bought together
+  
+   Results: 1st place USA (34 times bought together with $64863.94), 2nd place Germany (25 times bought together $25007.13), 
+   3rd place Austria (15 times bought together with $36290.34)
+  
+4. Beverages + Dairy Products → Total combined revenue
+
+   USA, Austria, Germany.
+
+=============================================
