@@ -49,3 +49,11 @@ Insight: Confections is the most frequently paired category with beverages, sugg
 Important note:Combined with the earlier finding that Q1 consistently drives the highest beverage revenue, marketing bundle campaigns featuring beverages with confections and dairy products would be most impactful when launched at the start of the year
 
 ================================================================
+
+Problem: Analyzing the pattern of purchasing beverages together with confectionery and dairy products by shipping country.
+
+Result: USA and Germany dominate beverage related combinations shopping pattern in all filter searches.
+
+Insight: Germany and the USA consistently appear as the top markets when analyzing beverage purchases combined with confections and dairy products, confirming the strong cross-category demand in these regions. This supports the earlier insight that confections are the most frequently paired category with beverages, while dairy–beverage combinations generate higher transaction value despite slightly lower purchase frequency. In both markets, customers regularly add sweets or dairy items to beverage purchases, indicating clear consumption occasions such as snacking or breakfast. These patterns reinforce the opportunity to introduce beverage bundles with confections and dairy products, especially during Q1 when beverage revenue is at its peak, to maximize average order value.
+
+================================================================
