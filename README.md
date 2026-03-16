@@ -36,3 +36,16 @@ Result: Most profitable quarters were : Q1 of 1998 with $89606.13, Q1 of 1997 wi
 Insight: Q1 of 1998 was by far the most profitable quarter for beverages, generating $89,606 — a 153% increase over the second highest quarter (Q1 of 1997 at $35,387). This significant spike stands out significantly from other quarters and raises the question of what drove such a dramatic increase in beverage sales.
 
 ================================================================
+
+Problem: Purchasing patterns in the beverage category.
+
+Question: Which product categories are most frequently purchased alongside beverages?
+
+Result: The top 3 categories bought together with beverages are: Confections (149 times, $190,895), 
+Seafood (145 times, $142,001) and Dairy Products (142 times, $196,582).
+
+Insight: Confections is the most frequently paired category with beverages, suggesting customers naturally combine sweet treats with drinks. Interestingly, despite Dairy Products ranking 3rd in purchase frequency, it generates the highest combined revenue at $196,582 meaning dairy+beverage combinations are high value transactions even if slightly less frequent. This presents a clear marketing opportunity: bundling beverage with confections and dairy products could increase average order value by capitalizing from existing customer purchasing behaviour.
+
+Important note:Combined with the earlier finding that Q1 consistently drives the highest beverage revenue, marketing bundle campaigns featuring beverages with confections and dairy products would be most impactful when launched at the start of the year
+
+================================================================
