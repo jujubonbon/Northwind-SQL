@@ -57,3 +57,15 @@ Result: USA and Germany dominate beverage related combinations shopping pattern 
 Insight: Germany and the USA consistently appear as the top markets when analyzing beverage purchases combined with confections and dairy products, confirming the strong cross-category demand in these regions. This supports the earlier insight that confections are the most frequently paired category with beverages, while dairy–beverage combinations generate higher transaction value despite slightly lower purchase frequency. In both markets, customers regularly add sweets or dairy items to beverage purchases, indicating clear consumption occasions such as snacking or breakfast. These patterns reinforce the opportunity to introduce beverage bundles with confections and dairy products, especially during Q1 when beverage revenue is at its peak, to maximize average order value.
 
 ================================================================
+
+- Problem: Identify most valuable customers.
+  
+- Question: Which customers are Champions, Loyal, New, At Risk, or Lost based on their purchasing behavior?
+  
+- Results: Each customer was scored across three sections: recency (how recently they ordered), 
+  frequency (how often they ordered), and revenue (how much they spent).
+
+- Analysis: The RFM segmentation of customers reveals distinct behavioral patterns across six groups. Champions and Loyal customers drive the majority of revenue and should be prioritized for retention efforts. At Risk customers represent a missed opportunity — they bought frequently before but have since gone quiet, making them ideal targets for win-back campaigns. New and Potential customers need nurturing to move up the value ladder. Lost customers show low engagement across all segments.
+
+================================================================
+
