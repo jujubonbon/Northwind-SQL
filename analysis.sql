@@ -143,3 +143,42 @@ product categories bought together.
    USA, Austria, Germany.
 
 =============================================
+
+  - Problem: Identify most valuable customers.
+  - Question: Which customers are Champions, Loyal, New, At Risk, or Lost based on their purchasing behavior?
+
+with stage1 as
+(SELECT c.customerID, c.companyName,COUNT(DISTINCT o.orderID) AS frequency, 
+  ROUND(SUM(od.unitPrice * od.quantity * (1 - od.discount)), 2) AS revenue,
+  max(o.orderDate) last_order_date
+FROM `my-portfolio-project-490314.Northwind_Traders.Order_details` od 
+INNER JOIN `my-portfolio-project-490314.Northwind_Traders.Orders` o 
+ON od.orderID = o.orderID
+INNER JOIN `my-portfolio-project-490314.Northwind_Traders.Customers` c 
+ON c.customerID = o.customerID 
+GROUP BY c.companyName, c.customerID),
+stage2 as (select customerID, companyName,frequency,revenue,
+date_diff(date'1998-05-07',cast(last_order_date as date),day) as recency_days,
+NTILE(3) OVER (ORDER BY DATE_DIFF(DATE '1998-05-07', CAST(last_order_date  AS DATE), DAY) desc) AS recency_rank,
+NTILE(3) OVER (ORDER BY frequency DESC) AS frequency_rank,
+NTILE(3) OVER (ORDER BY revenue DESC)   AS revenue_rank
+FROM stage1),
+stage3 as (select customerID,companyName,frequency,revenue,recency_days,recency_rank,frequency_rank,revenue_rank,
+CASE
+WHEN recency_rank = 3 AND frequency_rank = 3 THEN 'Champion'
+WHEN recency_rank = 3 AND frequency_rank = 2 THEN 'Loyal'
+WHEN recency_rank = 2 AND frequency_rank >= 2 THEN 'Loyal'
+WHEN recency_rank = 3 AND frequency_rank = 1 THEN 'New Customer'
+WHEN recency_rank = 1 AND frequency_rank >= 2 THEN 'At Risk'
+WHEN recency_rank = 1 AND frequency_rank = 1 THEN 'Lost'
+ELSE 'Potential'
+END AS segment from stage2)
+select * from stage3 
+order by recency_rank desc
+
+- Results: Each customer was scored across three sections: recency (how recently they ordered), 
+  frequency (how often they ordered), and revenue (how much they spent).
+
+  =============================================
+
+
